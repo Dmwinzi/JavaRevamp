@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -110,6 +112,51 @@ public class Main {
         Constructor cons  = new Constructor("Dan",22);
         System.out.println("I am\t" + cons.age + "\t years old");
 
+        Vehicle vehicle  = new Vehicle();
+       vehicle.carname = "Volkswagen";
+        System.out.println(vehicle.carname);
+        vehicle.cartype();
+        vehicle.enginetype();
+        vehicle.manufacturer();
+
+        Pig pig  = new Pig();
+        pig.animalsound();
+
+        Innerclass  innerclass  = new Innerclass();
+        Innerclass.Deep  inn  = innerclass.new Deep();
+
+        System.out.println(innerclass.name + "\t" + inn.name);
+
+        Cow cow  = new Cow();
+        cow.sound();
+        cow.isMammal();
+
+        NetworkImpl  network  = new NetworkImpl();
+        System.out.println("Please enter username");
+        Scanner scanner  = new Scanner(System.in);
+        String username  = scanner.nextLine();
+        network.login(username);
+        System.out.println("Would you like to exit yes/no?");
+        String exit = scanner.nextLine();
+
+        if (exit.equals("yes")){
+            network.logout();
+        } else  {
+            System.out.println("Welcome" + username);
+        }
+
+        System.out.println("Password test enter password");
+        String password =  scanner.nextLine();
+        network.passwordtest(password);
+
+
+        Employee employee  = new Employee("Daniel",001);
+        System.out.println(employee.getName());
+        System.out.println(employee.getNumber());
+
+        Employeerecord  employeerecord  = new Employeerecord("Mwinzi",002);
+        System.out.println(employeerecord.name());
+        System.out.println(employeerecord.number());
 
     }
 
