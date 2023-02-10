@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -157,6 +161,36 @@ public class Main {
         Employeerecord  employeerecord  = new Employeerecord("Mwinzi",002);
         System.out.println(employeerecord.name());
         System.out.println(employeerecord.number());
+
+        List<People> people  = new ArrayList<>();
+        people.add(new People("Daniel","Mwinzi",90000,20,"Male"));
+        people.add(new People("Aginetor","Wango",250000,30,"Female"));
+        people.add(new People("Joseph","Kavisu",350000,40,"Male"));
+        people.add(new People("Ann","Mutheu",150000,26,"Female"));
+        people.add(new People("Tabitha","Muthina",100000,24,"Female"));
+
+        //imperative
+        for (People people1 : people){
+
+            if (people1.gender.equals("Male")){
+                System.out.println(people1);
+            }
+        }
+
+        //Simplified the filtering
+        //declaritive
+        List<People> femal = people.stream().filter(female -> female.gender.equals("Female"))
+                .collect(Collectors.toList());
+
+        femal.forEach(System.out::println);
+
+       List<People> sorted =  people.stream().sorted(Comparator.comparing(people1 -> people1.age))
+               .collect(Collectors.toList());
+
+       sorted.forEach(System.out::println);
+
+
+
 
     }
 
