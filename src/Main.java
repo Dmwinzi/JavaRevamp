@@ -184,7 +184,7 @@ public class Main {
 
         femal.forEach(System.out::println);
 
-       List<People> sorted =  people.stream().sorted(Comparator.comparing(people1 -> people1.age))
+       List<People> sorted =  people.stream().sorted(Comparator.comparing(People::getAge).reversed())
                .collect(Collectors.toList());
 
        sorted.forEach(System.out::println);
